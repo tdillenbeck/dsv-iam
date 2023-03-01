@@ -11,7 +11,9 @@ REGION = "us-east-1"
 DBNAME = "testdb"
 os.environ['LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN'] = '1'
 
-dsv_json = subprocess.check_output(['dsv', 'secret', 'read', 'aws:aws-dynamic'])
+DSV_EXE_NAME = "dsv-cli"
+
+dsv_json = subprocess.check_output([DSV_EXE_NAME, 'secret', 'read', 'aws:aws-dynamic'])
 
 tokens = json.loads(dsv_json)
 
